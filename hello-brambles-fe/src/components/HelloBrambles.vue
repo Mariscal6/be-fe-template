@@ -6,21 +6,21 @@
     </div>
   </div>
 </template>
-
-<script lang="ts">
+<script setup lang="ts">
+import { onMounted } from "vue";
 import BramblesLogo from "./BramblesLogo.vue";
-import { Options, Vue } from "vue-class-component";
-@Options({
-  props: {
-    msg: String,
-  },
-  components: {
-    BramblesLogo,
-  },
-})
-export default class HelloBrambles extends Vue {
-  msg!: string;
-}
+onMounted(() => {
+  // change me with your url
+  // don't forget to change visibility on the port
+  fetch("")
+    .then((response) => response.text())
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+    });
+});
 </script>
 
 <style scoped>
@@ -32,8 +32,8 @@ export default class HelloBrambles extends Vue {
   align-items: center;
   height: 90vh;
   border: 2px solid rgb(4, 57, 110);
+  border-radius: 0.5rem;
   position: relative;
-  /* Add this line */
 }
 
 .footer {

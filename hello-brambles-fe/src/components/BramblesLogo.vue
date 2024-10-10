@@ -11,10 +11,3 @@
     </g>
   </svg>
 </template>
-<script lang="ts">
-import { Vue } from "vue-class-component";
-
-export default class HelloBrambles extends Vue {
-  msg!: string;
-}
-</script>
